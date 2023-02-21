@@ -22,7 +22,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-I know there are lots of todo list apps in tutorial purpose and it is one of them. I tried to give a good design as simple and user-friendly as beautiful. In addition tried to add some unique tricks that have many modern todo list apps.
+I know there are lots of todo list apps in tutorial purpose and it is one of them. I tried to give a good design as simple and user-friendly as beautiful. In addition tried to add some tricks that have many modern todo list apps.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
