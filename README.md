@@ -17,30 +17,6 @@
 
 
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -62,11 +38,6 @@ I know there are lots of todo list apps in tutorial purpose and it is one of the
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
-
-Soon
-
 ### Prerequisites
 
 Soon
@@ -84,7 +55,7 @@ Soon
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the GNU v3.0 License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,6 +65,8 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Olzhabaev Batyr - olzhabaevbatyr@gmail.com
+* [![Telegram][nuxx]][telegram-url]
+
 
 Project Link: [https://github.com/meaculpv/todoList](https://github.com/meaculpv/todoList)
 
@@ -108,3 +81,5 @@ Project Link: [https://github.com/meaculpv/todoList](https://github.com/meaculpv
 [mui.com]: https://img.shields.io/badge/MaterialUI-081421?style=for-the-badge&logo=mui&logoColor=white
 [firebase-url]: https://firebase.google.com 
 [firebase.com]: https://img.shields.io/badge/Firebase-yellow?style=for-the-badge&logo=firebase&logoColor=white
+[nuxx]: https://t.me/nuxxxxxx
+[telegram-url]: https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white
