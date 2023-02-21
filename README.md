@@ -107,4 +107,4 @@ Project Link: [https://github.com/meaculpv/todoList](https://github.com/meaculpv
 [mui-url]: https://mui.com
 [mui.com]:  https://img.shields.io/badge/-MaterialUI-blue
 [firebase-url]: https://firebase.google.com 
-[firbase.com]: https://img.shields.io/badge/-Firebase-blue
+[firebase.com]: https://img.shields.io/badge/-Firebase-blue
