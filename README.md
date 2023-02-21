@@ -65,7 +65,7 @@ Distributed under the GNU v3.0 License. See `LICENSE.txt` for more information.
 ## Contact
 
 Olzhabaev Batyr - olzhabaevbatyr@gmail.com
-* [![Telegram][nuxx]][telegram-url]
+* [![Telegram][telegram.org]][telegram-url]
 
 
 Project Link: [https://github.com/meaculpv/todoList](https://github.com/meaculpv/todoList)
@@ -81,5 +81,5 @@ Project Link: [https://github.com/meaculpv/todoList](https://github.com/meaculpv
 [mui.com]: https://img.shields.io/badge/MaterialUI-081421?style=for-the-badge&logo=mui&logoColor=white
 [firebase-url]: https://firebase.google.com 
 [firebase.com]: https://img.shields.io/badge/Firebase-yellow?style=for-the-badge&logo=firebase&logoColor=white
-[nuxx]: https://t.me/nuxxxxxx
+[telegram.org]: https://t.me/nuxxxxxx
 [telegram-url]: https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white
