@@ -103,8 +103,8 @@ Project Link: [https://github.com/meaculpv/todoList](https://github.com/meaculpv
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [react-url]: https://reactjs.org
-[React.js]: https://img.shields.io/badge/-React-blue
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [mui-url]: https://mui.com
-[mui.com]:  https://img.shields.io/badge/-MaterialUI-blue
+[mui.com]: https://img.shields.io/badge/MaterialUI-081421?style=for-the-badge&logo=mui&logoColor=white
 [firebase-url]: https://firebase.google.com 
-[firebase.com]: https://img.shields.io/badge/-Firebase-blue
+[firebase.com]: https://img.shields.io/badge/Firebase-yellow?style=for-the-badge&logo=firebase&logoColor=white
