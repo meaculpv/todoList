@@ -81,5 +81,5 @@ Project Link: [https://github.com/meaculpv/todoList](https://github.com/meaculpv
 [mui.com]: https://img.shields.io/badge/MaterialUI-081421?style=for-the-badge&logo=mui&logoColor=white
 [firebase-url]: https://firebase.google.com 
 [firebase.com]: https://img.shields.io/badge/Firebase-yellow?style=for-the-badge&logo=firebase&logoColor=white
-[telegram.org]: https://t.me/nuxxxxxx
+[telegram.org]: https://desktop.telegram.org/
 [telegram-url]: https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white
