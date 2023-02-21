@@ -54,9 +54,9 @@ I know there are lots of todo list apps in tutorial purpose and it is one of the
 
 ### Built With
 
-* [![React][React.js]][https://img.shields.io/badge/-React-blue]
-* [![MaterialUI][mui.com]][https://img.shields.io/badge/-MaterialUI-blue]
-* [![Firebase][firebase.google.com]][https://img.shields.io/badge/-Firebase-blue]
+* [![React][React.js]][react-url]
+* [![MaterialUI][mui.com]][mui-url]
+* [![Firebase][firebase.google.com]][firebase-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -98,3 +98,10 @@ Olzhabaev Batyr - olzhabaevbatyr@gmail.com
 Project Link: [https://github.com/meaculpv/todoList](https://github.com/meaculpv/todoList)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[react-url]: https://img.shields.io/badge/-React-blue
+[mui-url]: https://img.shields.io/badge/-MaterialUI-blue
+[firebase-url]: https://img.shields.io/badge/-Firebase-blue
