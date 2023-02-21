@@ -65,10 +65,10 @@ Distributed under the GNU v3.0 License. See `LICENSE.txt` for more information.
 ## Contact
 
 Olzhabaev Batyr - olzhabaevbatyr@gmail.com
-* [![Telegram][telegram.org]][telegram-url]
+Project Link: [https://github.com/meaculpv/todoList]()
 
 
-Project Link: [https://github.com/meaculpv/todoList](https://github.com/meaculpv/todoList)
+Telegram: [https://t.me/nuxxxxxx](https://t.me/nuxxxxxx)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
