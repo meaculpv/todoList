@@ -56,7 +56,7 @@ I know there are lots of todo list apps in tutorial purpose and it is one of the
 
 * [![React][React.js]][react-url]
 * [![MaterialUI][mui.com]][mui-url]
-* [![Firebase][firebase.google.com]][firebase-url]
+* [![Firebase][firebase.com]][firebase-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -102,6 +102,9 @@ Project Link: [https://github.com/meaculpv/todoList](https://github.com/meaculpv
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[react-url]: https://img.shields.io/badge/-React-blue
-[mui-url]: https://img.shields.io/badge/-MaterialUI-blue
-[firebase-url]: https://img.shields.io/badge/-Firebase-blue
+[react-url]: https://reactjs.org
+[React.js]: https://img.shields.io/badge/-React-blue
+[mui-url]: https://mui.com
+[mui.com]:  https://img.shields.io/badge/-MaterialUI-blue
+[firebase-url]: https://firebase.google.com 
+[firbase.com]: https://img.shields.io/badge/-Firebase-blue
