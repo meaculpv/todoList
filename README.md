@@ -5,7 +5,7 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Todo List</h3>
+  <h3 align="center">DoEz</h3>
 
   <p align="center">
     Just a first project of advanced front-end techlogies discipline!
