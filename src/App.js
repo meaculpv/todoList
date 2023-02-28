@@ -1,5 +1,9 @@
+/* MUI */
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
 import "./App.css";
-import Header from "./components/Header"
+import Sidebar from "./components/Sidebar"
 import Main from "./components/Main"
 import User from "./components/User"
 import AddNewTodo from "./components/AddNewTodo"
@@ -8,20 +12,29 @@ import Lists from "./components/Lists"
 import Todos from "./components/Todos"
 import EditTodo from "./components/EditTodo"
 
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+
 function App() {
   return (
-    <div className="App">
-      <Header>
-        <User />
-        <AddNewTodo />
-        <Calendar />
-        <Lists />
-      </Header>
-      <Main>
-        <Todos />
-        <EditTodo />
-      </Main>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <div className="App">
+        <Sidebar>
+          <User />
+          <AddNewTodo />
+          <Calendar />
+          <Lists />
+        </Sidebar>
+        <Main>
+          <Todos />
+          <EditTodo />
+        </Main>
+      </div>
+    </ThemeProvider>
+
   );
 }
 
