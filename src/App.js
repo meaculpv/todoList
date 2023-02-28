@@ -20,19 +20,22 @@ const darkTheme = createTheme({
 
 function App() {
   return (
+    /* Apply dark theme from MUI */
     <ThemeProvider theme={darkTheme}>
-      <div className="App">
-        <Sidebar>
-          <User />
-          <AddNewTodo />
-          <Calendar />
-          <Lists />
-        </Sidebar>
-        <Main>
-          <Todos />
-          <EditTodo />
-        </Main>
-      </div>
+      <CssBaseline>
+        <div className="App">
+          <Sidebar>
+            <User />
+            <AddNewTodo />
+            <Calendar />
+            <Lists />
+          </Sidebar>
+          <Main>
+            <Todos />
+            <EditTodo />
+          </Main>
+        </div>
+      </CssBaseline>
     </ThemeProvider>
 
   );

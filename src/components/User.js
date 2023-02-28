@@ -1,4 +1,4 @@
-import { Avatar, Link, Typography } from "@mui/material";
+import { Avatar, Container, Divider, Link, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { React } from "react";
 import avatar from "./assets/avatar.png"
@@ -6,16 +6,17 @@ import avatar from "./assets/avatar.png"
 function User() {
     
     return (
-        <div className="User">
+        <Container className="User" sx={{borderBottom: 1,}}>
             <Box
                 sx={{
-                    borderBottom: 1,
                     display: 'flex',
                     justifyContent: 'space-around',
-                    borderColor: 'primary.main',
                     alignItems: 'center',
+                    paddingBottom: 3,
+                    paddingTop: 1,
                 }}
             >
+                {/* User's profile photo */}
                 <Avatar
                 className="avatar"
                 alt="user-avatar" 
@@ -24,8 +25,8 @@ function User() {
                     width: 56,
                     height: 56,
                 }} />
-                <Box
-                >
+                {/* User's info */}
+                <Box className="info">
                     <Typography
                         variant="h6"
                     >
@@ -41,7 +42,7 @@ function User() {
                     >Logout</Link>
                 </Box>
             </Box>
-        </div>
+        </Container>
     )
 
 }

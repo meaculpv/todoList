@@ -1,10 +1,11 @@
+import { Box } from "@mui/system";
 import { React } from "react";
 
 function Main({ children }) {
     
     return (
         <div className="Main">
-            {children}
+            <Box> {children}</Box>
         </div>
     )
 
