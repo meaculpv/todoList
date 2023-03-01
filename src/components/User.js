@@ -6,7 +6,7 @@ import avatar from "./assets/avatar.png"
 function User() {
     
     return (
-        <Container className="User" sx={{borderBottom: 1,}}>
+        <Container className="User">
             <Box
                 sx={{
                     display: 'flex',
@@ -42,6 +42,7 @@ function User() {
                     >Logout</Link>
                 </Box>
             </Box>
+            <Divider />
         </Container>
     )
 

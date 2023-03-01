@@ -17,8 +17,7 @@ function Header({ children }) {
             },
         }}
         variant="permanent"
-        anchor="left"
-        >
+        anchor="left">
             <List>
                 {children}
             </List> 
