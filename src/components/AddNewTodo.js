@@ -40,7 +40,7 @@ function AddNewTodo() {
                 </Button>
             </Box>
             <Modal showModal={showModal} setShowModal={setShowModal}>
-                <Dialog open={showModal} onClose={handleClose}>
+                <Dialog open={handleClickOpen} onClose={handleClose}>
                     <DialogTitle>Add new to do <IconButton onClick={handleClose} sx={{position:"absolute", right: 8, top: 8}}> <CloseIcon /></IconButton></DialogTitle>
                     <DialogContent>
                         <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -60,7 +60,7 @@ function AddNewTodo() {
                                 <Box className="pick-day" sx={{pt: 1.5, pl: 1.5, pr: 1.5,}}>
                                     <Box sx={{display: "flex", alignItems: "center", marginBottom: "5px"}}>
                                         <CalendarMonthIcon />
-                                        <Typography>Choose a day</Typography>
+                                        <Typography sx={{ml: "10px"}}>Choose a day</Typography>
                                     </Box>
                                     <DatePicker
                                         value={day}
@@ -73,7 +73,7 @@ function AddNewTodo() {
                                 <Box className="pick-time" sx={{p: 1.5}}>
                                     <Box sx={{display: "flex", alignItems: "center", marginBottom: "5px"}}>
                                         <AccessTimeIcon />
-                                        <Typography>Choose a time</Typography>
+                                        <Typography sx={{ml: "10px"}}>Choose a time</Typography>
                                     </Box>
                                     <TimePicker 
                                         value={time}
@@ -84,7 +84,7 @@ function AddNewTodo() {
                                 <Box className="pick-list" sx={{p: 0.5}}>
                                     <Box sx={{display: "flex", alignItems: "center", marginBottom: "10px"}}>
                                         <FormatListBulletedIcon />
-                                        <Typography>Choose a list</Typography>
+                                        <Typography sx={{ml: "10px"}}>Choose a list</Typography>
                                     </Box>
                                     <Stack direction="row" spacing={1} sx={{display: "flex", pt: 1, pl: 1, pr: 1, flexWrap: "wrap"}}>
                                         <Chip label="Personal" color="primary" variant="outlined" onClick={() => {}} />
