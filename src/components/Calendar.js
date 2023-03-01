@@ -17,7 +17,7 @@ function Calendar() {
                     <ExpandLessIcon />
                 </IconButton>
             </Box>
-            <List sx={{p: 0.5}}>
+            <List className="items" sx={{p: 0.5}}>
                 {
                 calendarItems.map((item, index) => 
                 <ListItem key={index} disablePadding sx={{p: 0.25, m: "5px"}}>
