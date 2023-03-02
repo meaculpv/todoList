@@ -1,20 +1,19 @@
-import { Button, Chip, Dialog, DialogActions, DialogContent, DialogTitle, Divider, FormControl, IconButton, Stack, TextField, Typography } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Divider, IconButton, } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import NotificationAddIcon from '@mui/icons-material/NotificationAdd';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import CloseIcon from '@mui/icons-material/Close';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { DatePicker, TimePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { React, useContext, useEffect, useState } from "react";
-import Modal from "./Modal";
-import TodoForm from "./TodoForm";
+import moment from "moment/moment";
+
+// Imports from project
 import { TodoContext } from "./context";
+import TodoForm from "./TodoForm";
+import Modal from "./Modal";
+import { calendarItems } from "./constants";
+import firebase from "./firebase";
 
 function AddNewTodo() {
     // CONTEXT
-    const { selectedList } = useContext(TodoContext);
+    const { lists, selectedList } = useContext(TodoContext);
 
     // STATE
     const [showModal, setShowModal] = useState(false)
@@ -23,21 +22,39 @@ function AddNewTodo() {
     const [time, setTime] = useState(new Date())
     const [todoList, setTodoList] = useState(selectedList)
 
+    
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log("H!2");
+
+        if ( text && !calendarItems.includes(todoList) ) {
+            console.log("Hi");
+            firebase
+                .firestore()
+                .collection("todos")
+                .add(
+                    {
+                        text: text,
+                        date: moment(day).format("MM/DD/YYYY"),
+                        day: moment(day).format("d"),
+                        time: moment(time).format("hh:mm A"),
+                        checked: false,
+                        listName: todoList,
+                    }
+                );
+
+            setShowModal(false);
+            setText('');
+            setDay(new Date());
+            setTime(new Date());
+        }
+    }
+
 
     const handleClose = () => {
         setShowModal(false)
     }
-
-    const handleSubmit = (e) => {
-
-    }
-
-    const lists = [
-        {id: 1, name: "Personal", numOfTodos: 0},
-        {id: 2, name: "Work", numOfTodos: 2},
-        {id: 3, name: "Hobby", numOfTodos: 1},
-    ];
-
+    
     useEffect(() => {
         setTodoList(selectedList);
     }, [selectedList])
@@ -62,7 +79,6 @@ function AddNewTodo() {
                     <DialogTitle>Add new to do <IconButton onClick={handleClose} sx={{position:"absolute", right: 8, top: 8}}> <CloseIcon /></IconButton></DialogTitle>
                     <DialogContent>
                         <TodoForm 
-                            handleSubmit={handleSubmit}
                             text={text}
                             setText={setText}
                             day={day}
@@ -76,7 +92,10 @@ function AddNewTodo() {
                         />
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={handleClose} variant="contained" sx={{width: "100%",}}>Add New Todo</Button>
+                        <Button onClick={(e) => {
+                            setShowModal(false)
+                            handleSubmit(e)
+                            }} variant="contained" sx={{width: "100%",}}>Add New Todo</Button>
                     </DialogActions>
                 </Dialog>
             </Modal>

@@ -35,8 +35,8 @@ function Lists() {
             </Box>
             <List className="lists">
                 {
-                    lists.map(list => 
-                        <ListItem>
+                    lists.map((list) => 
+                        <ListItem key={list.id}>
                             <ListItemButton>
                                     <MyList 
                                         list={list}

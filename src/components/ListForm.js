@@ -16,7 +16,7 @@ function ListForm({handleSubmit, heading, value, setValue, setShowModal, confirm
                         />
                     </DialogContent>
                     <DialogActions sx={{pb: 2,}}>
-                        <Button variant="contained" onClick={() => setShowModal(false)}>{confirmButtonText}</Button>
+                        <Button variant="contained" onClick={(e) => {setShowModal(false); handleSubmit(e)}}>{confirmButtonText}</Button>
                         <Button onClick={() => setShowModal(false)}>Cancel</Button>
                     </DialogActions>
                 </Dialog>
