@@ -1,16 +1,29 @@
 import { Box, Button, IconButton, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import RenameList from "./RenameList";
 import Modal from "./Modal";
+import { TodoContext } from "./context";
 
 function List({list, edit}) {
+    // CONTEXT
+    const { setSelectedList } = useContext(TodoContext)
+
+    // STATE
     const [showModal, setShowModal] = useState(false);
 
     return (
-        <Box className="List" sx={{display: "flex", alignItems: "center", p: 0.25, m: "5px", position: "relative", width: "100%"}}>
-            <Box className="name" sx={{cursor: "pointer", wordBreak: "break-all", ml: "-7px"}}>
+        <Box className="List" sx={{display: "flex", alignItems: "center", p: 0.25, m: "5px", position: "relative", width: "100%"}} 
+        
+            onClick={() => setSelectedList(list.name)}
+        >
+            <Box
+                className="name"
+                sx={{
+                    cursor: "pointer", wordBreak: "break-all", ml: "-7px"
+                }}
+            >
                 {list.name}
             </Box>
             <Box className="btns" sx={{display: "flex", alignItems: "center"}}>

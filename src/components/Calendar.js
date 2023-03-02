@@ -1,10 +1,13 @@
 import { Container, Box, Typography, Divider, IconButton, List, ListItem, ListItemText, ListItemButton } from "@mui/material";
-import { React } from "react";
+import { React, useContext } from "react";
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { calendarItems } from './constants';
+import { TodoContext } from "./context/index"
 
 function Calendar() {
+    // CONTEXT
+    const { setSelectedList } = useContext(TodoContext);
 
     return (
         <Container className="Calendar" sx={{p: 1,}}>
@@ -21,7 +24,7 @@ function Calendar() {
                 {
                 calendarItems.map((item, index) => 
                 <ListItem key={index} disablePadding sx={{p: 0.25, m: "5px"}}>
-                    <ListItemButton>
+                    <ListItemButton onClick={() => setSelectedList(item)}>
                         <ListItemText primary={item} />
                     </ListItemButton>
                 </ListItem>)

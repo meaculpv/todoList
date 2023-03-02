@@ -1,12 +1,15 @@
-import { React } from "react";
+import { React, useContext } from "react";
 import Todo from "./Todo";
 import Next7Days from "./Next7Days";
 import { Divider, Paper, Typography, Stack } from "@mui/material";
 import TodayIcon from '@mui/icons-material/Today';
 import { Box } from "@mui/system";
 
+import { TodoContext } from "./context/index";
+
 function Todos() {
-    const selectedList = "Today";
+    const { selectedList } = useContext(TodoContext);
+
     const todos = [
         {
             id : 'd54sd4',
@@ -51,7 +54,7 @@ function Todos() {
             >
                 <Stack direction="row">
                     <TodayIcon color="primary" fontSize="small" sx={{mt: 2.6, mb: 1, ml: 1}} />
-                    <Typography variant="h6" sx={{mt: 2, pb: 2, pl: 1}}>Today</Typography>
+                    <Typography variant="h6" sx={{mt: 2, pb: 2, pl: 1}}>{selectedList}</Typography>
                 </Stack>
                 <Divider />
             </Box>
