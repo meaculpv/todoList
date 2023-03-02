@@ -9,6 +9,8 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker, TimePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { React } from "react";
 
+
+
 function TodoForm({
     handleSubmit,
     text, setText,
@@ -19,17 +21,21 @@ function TodoForm({
     setShowModal = false
 }) {
 
+const CustomTextField = ({text, onChange}) => {
+    return <TextField 
+        value={text}
+        onChange={onChange}
+        placeholder="To do ..."
+        autoFocus
+        fullWidth
+        sx={{paddingBottom: 3,}}
+    />
+}
+
     return (
         <LocalizationProvider dateAdapter={AdapterDateFns}>
             <FormControl className="TodoForm" onSubmit={handleSubmit} sx={{padding: 1, width: "100%", borderRadius: 4}}>
-                <TextField 
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    placeholder="To do ..."
-                    autoFocus
-                    fullWidth
-                    sx={{paddingBottom: 3,}}
-                />
+                <CustomTextField text={text} onChange={e => setText(e.target.value)} />
                 <Box className="remind" sx={{display: "flex", alignItems: "center", padding: 0.5}}>
                     <NotificationAddIcon />
                     <Typography variant="bodyText" sx={{marginLeft: "10px"}}>Remind me</Typography>

@@ -24,10 +24,6 @@ function AddNewTodo() {
     const [todoList, setTodoList] = useState(selectedList)
 
 
-    const handleClickOpen = () => {
-        setShowModal(true)
-    }
-
     const handleClose = () => {
         setShowModal(false)
     }
@@ -62,7 +58,7 @@ function AddNewTodo() {
                 </Button>
             </Box>
             <Modal showModal={showModal} setShowModal={setShowModal}>
-                <Dialog open={handleClickOpen} onClose={handleClose}>
+                <Dialog open={showModal} onClose={handleClose}>
                     <DialogTitle>Add new to do <IconButton onClick={handleClose} sx={{position:"absolute", right: 8, top: 8}}> <CloseIcon /></IconButton></DialogTitle>
                     <DialogContent>
                         <TodoForm 
