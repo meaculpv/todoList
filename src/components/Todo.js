@@ -69,7 +69,7 @@ function Todo({todo}) {
                             <IconButton> <UpdateIcon fontSize="small" /> </IconButton>
                         }
                     </Box>
-                    <Box className="deleteTodo" component="span">
+                    <Box className="deleteTodo" component="span" onClick={() => deleteTodo(todo)}>
                         {
                             (hover || todo.checked) &&
                             <IconButton> <DeleteIcon fontSize="small" /> </IconButton>

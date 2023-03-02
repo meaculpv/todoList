@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { useTodos, useLists } from "../hooks";
+import { useTodos, useLists, useFilterTodos } from "../hooks";
 
 const TodoContext = createContext();
 
@@ -9,12 +9,14 @@ function TodoContextProvider({children}) {
 
     const todos = useTodos();
     const lists = useLists(todos);
+    const filteredTodos = useFilterTodos(todos, selectedList);
+
     return (
         <TodoContext.Provider
             value={{
                 selectedList,
                 setSelectedList,
-                todos,
+                todos: filteredTodos,
                 lists,
             }}
         >

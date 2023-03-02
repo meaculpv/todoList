@@ -37,7 +37,10 @@ function Todos() {
             </Box>
             <Box className="todos" sx={{overflowX: "auto"}}>
                 {
-                    selectedList === "Next 7 Days" ?
+                    console.log(selectedList)
+                }
+                {
+                    selectedList === "next 7 days" ?
                     <Next7Days todos={todos} />
                     :
                     todos.map(todo => 
