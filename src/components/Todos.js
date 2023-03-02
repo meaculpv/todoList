@@ -5,35 +5,12 @@ import { Divider, Paper, Typography, Stack } from "@mui/material";
 import TodayIcon from '@mui/icons-material/Today';
 import { Box } from "@mui/system";
 
-import { TodoContext } from "./context/index";
+import { TodoContext } from "./context";
 
 function Todos() {
-    const { selectedList } = useContext(TodoContext);
 
-    const todos = [
-        {
-            id : 'd54sd4',
-            text : "Go for a run",
-            description: "Some description",
-            time : "10:00 AM",
-            date : "06/03/2021",
-            day : "6",
-            checked : true,
-            color : '#00ff00',
-            list : 'personal'
-        },
-        {
-            id : 'd54fdf',
-            text : "Meeting",
-            description: "Save a periodt",
-            time : "09:00 AM",
-            date : "08/03/2021",
-            day : "1",
-            checked : false,
-            color : '#00ff00',
-            list : 'work'
-        }
-    ]
+    // CONTEXT
+    const { todos, selectedList } = useContext(TodoContext);
 
     return (
         <Paper

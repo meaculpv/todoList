@@ -3,19 +3,19 @@ import { Box } from "@mui/system";
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import EditIcon from '@mui/icons-material/Edit';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import AddNewList from "./AddNewList";
 import MyList from "./List";
+import { TodoContext } from "./context";
 
 function Lists() {
+    // STATE
     const [showMenu, setShowMenu] = useState(true);
     const [edit, setEdit] = useState(false);
     const editColor = edit ? "primary" : "";
-    const lists = [
-        {id: 1, name: "Personal", numOfTodos: 0},
-        {id: 2, name: "Work", numOfTodos: 2},
-        {id: 3, name: "Hobby", numOfTodos: 1},
-    ];
+    
+    // CONTEXT
+    const { lists } = useContext(TodoContext);
     
     return (
         <Container className="Lists" sx={{p: 1,}}>
