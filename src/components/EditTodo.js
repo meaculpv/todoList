@@ -8,6 +8,7 @@ function EditTodo() {
     const [text, setText] = useState('')
     const [day, setDay] = useState(new Date())
     const [time, setTime] = useState(new Date())
+    const [todoList, setTodoList] = useState()
 
     const handleSubmit = (e) => {
 
@@ -50,6 +51,8 @@ function EditTodo() {
                     day={day}
                     setDay={setDay}
                     time={time}
+                    todoList={todoList}
+                    setTodoList={setTodoList}
                     setTime={setTime}
                     lists={lists}
                 />

@@ -54,7 +54,7 @@ function Todos() {
             >
                 <Stack direction="row">
                     <TodayIcon color="primary" fontSize="small" sx={{mt: 2.6, mb: 1, ml: 1}} />
-                    <Typography variant="h6" sx={{mt: 2, pb: 2, pl: 1}}>{selectedList}</Typography>
+                    <Typography variant="h6" sx={{mt: 2, pb: 2, pl: 1, textTransform: "capitalize"}}>{selectedList}</Typography>
                 </Stack>
                 <Divider />
             </Box>

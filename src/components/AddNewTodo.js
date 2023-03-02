@@ -7,15 +7,22 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import CloseIcon from '@mui/icons-material/Close';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker, TimePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { React, useState } from "react";
+import { React, useContext, useEffect, useState } from "react";
 import Modal from "./Modal";
 import TodoForm from "./TodoForm";
+import { TodoContext } from "./context";
 
 function AddNewTodo() {
+    // CONTEXT
+    const { selectedList } = useContext(TodoContext);
+
+    // STATE
     const [showModal, setShowModal] = useState(false)
     const [text, setText] = useState('')
     const [day, setDay] = useState(new Date())
     const [time, setTime] = useState(new Date())
+    const [todoList, setTodoList] = useState(selectedList)
+
 
     const handleClickOpen = () => {
         setShowModal(true)
@@ -34,6 +41,10 @@ function AddNewTodo() {
         {id: 2, name: "Work", numOfTodos: 2},
         {id: 3, name: "Hobby", numOfTodos: 1},
     ];
+
+    useEffect(() => {
+        setTodoList(selectedList);
+    }, [selectedList])
 
     return (
         <Container className="AddNewTodo" sx={{}}>
@@ -62,6 +73,8 @@ function AddNewTodo() {
                             setDay={setDay}
                             time={time}
                             setTime={setTime}
+                            todoList={todoList}
+                            setTodoList={setTodoList}
                             lists={lists}
                             setShowModal={setShowModal}
                         />

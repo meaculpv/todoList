@@ -14,6 +14,7 @@ function TodoForm({
     text, setText,
     day, setDay,
     time, setTime,
+    todoList, setTodoList,
     lists,
     setShowModal = false
 }) {
@@ -64,9 +65,19 @@ function TodoForm({
                     </Box>
                     <Stack direction="row" sx={{display: "flex", pt: 1, pl: 1, pr: 1, flexWrap: "wrap"}}>
                         {
+                            lists.length > 0 ?
                             lists.map(list =>
-                                <Chip key={list.id} label={list.name} variant="outlined" onClick={() => {}} sx={{ml: 1, mt: 1}} />
+                                <Chip
+                                    key={list.id}
+                                    color="primary"
+                                    label={list.name}
+                                    variant={todoList === list.name ? "" : "outlined"}
+                                    onClick={() => setTodoList(list.name)}
+                                    sx={{ml: 1, mt: 1}} 
+                                />
                             )
+                            :
+                            <Typography variant="body2" color="error">Create a list before proceeding</Typography>
                         }
                     </Stack>
                 </Box>
