@@ -9,6 +9,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker, TimePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { React, useState } from "react";
 import Modal from "./Modal";
+import TodoForm from "./TodoForm";
 
 function AddNewTodo() {
     const [showModal, setShowModal] = useState(false)
@@ -23,6 +24,16 @@ function AddNewTodo() {
     const handleClose = () => {
         setShowModal(false)
     }
+
+    const handleSubmit = (e) => {
+
+    }
+
+    const lists = [
+        {id: 1, name: "Personal", numOfTodos: 0},
+        {id: 2, name: "Work", numOfTodos: 2},
+        {id: 3, name: "Hobby", numOfTodos: 1},
+    ];
 
     return (
         <Container className="AddNewTodo" sx={{}}>
@@ -43,57 +54,17 @@ function AddNewTodo() {
                 <Dialog open={handleClickOpen} onClose={handleClose}>
                     <DialogTitle>Add new to do <IconButton onClick={handleClose} sx={{position:"absolute", right: 8, top: 8}}> <CloseIcon /></IconButton></DialogTitle>
                     <DialogContent>
-                        <LocalizationProvider dateAdapter={AdapterDateFns}>
-                            <FormControl sx={{padding: 1, width: "500px", borderRadius: 4}}>
-                                <TextField 
-                                    value={text}
-                                    onChange={(e) => setText(e.target.value)}
-                                    placeholder="To do ..."
-                                    autoFocus
-                                    fullWidth
-                                    sx={{paddingBottom: 3,}}
-                                />
-                                <Box className="remind" sx={{display: "flex", alignItems: "center", padding: 0.5}}>
-                                    <NotificationAddIcon />
-                                    <Typography variant="bodyText" sx={{marginLeft: "10px"}}>Remind me</Typography>
-                                </Box>
-                                <Box className="pick-day" sx={{pt: 1.5, pl: 1.5, pr: 1.5,}}>
-                                    <Box sx={{display: "flex", alignItems: "center", marginBottom: "5px"}}>
-                                        <CalendarMonthIcon />
-                                        <Typography sx={{ml: "10px"}}>Choose a day</Typography>
-                                    </Box>
-                                    <DatePicker
-                                        value={day}
-                                        onChange={(e) => {
-                                            setDay(e)
-                                        }}
-                                        renderInput={(params) => <TextField {...params} />}
-                                    />
-                                </Box>
-                                <Box className="pick-time" sx={{p: 1.5}}>
-                                    <Box sx={{display: "flex", alignItems: "center", marginBottom: "5px"}}>
-                                        <AccessTimeIcon />
-                                        <Typography sx={{ml: "10px"}}>Choose a time</Typography>
-                                    </Box>
-                                    <TimePicker 
-                                        value={time}
-                                        onChange={(e) => {setTime(e)}}
-                                        renderInput={(params) => <TextField {...params} />}
-                                    />
-                                </Box>
-                                <Box className="pick-list" sx={{p: 0.5}}>
-                                    <Box sx={{display: "flex", alignItems: "center", marginBottom: "10px"}}>
-                                        <FormatListBulletedIcon />
-                                        <Typography sx={{ml: "10px"}}>Choose a list</Typography>
-                                    </Box>
-                                    <Stack direction="row" spacing={1} sx={{display: "flex", pt: 1, pl: 1, pr: 1, flexWrap: "wrap"}}>
-                                        <Chip label="Personal" color="primary" variant="outlined" onClick={() => {}} />
-                                        <Chip label="Work" variant="outlined" onClick={() => {}} />
-                                        <Chip label="Hobby" variant="outlined" onClick={() => {}} />
-                                    </Stack>
-                                </Box>
-                            </FormControl>
-                        </LocalizationProvider>
+                        <TodoForm 
+                            handleSubmit={handleSubmit}
+                            text={text}
+                            setText={setText}
+                            day={day}
+                            setDay={setDay}
+                            time={time}
+                            setTime={setTime}
+                            lists={lists}
+                            setShowModal={setShowModal}
+                        />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={handleClose} variant="contained" sx={{width: "100%",}}>Add New Todo</Button>

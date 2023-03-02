@@ -1,7 +1,8 @@
 import { React } from "react";
 import Todo from "./Todo";
 import Next7Days from "./Next7Days";
-import { Container, Divider, Paper, Typography } from "@mui/material";
+import { Divider, Paper, Typography, Stack } from "@mui/material";
+import TodayIcon from '@mui/icons-material/Today';
 import { Box } from "@mui/system";
 
 function Todos() {
@@ -10,6 +11,7 @@ function Todos() {
         {
             id : 'd54sd4',
             text : "Go for a run",
+            description: "Some description",
             time : "10:00 AM",
             date : "06/03/2021",
             day : "6",
@@ -20,6 +22,7 @@ function Todos() {
         {
             id : 'd54fdf',
             text : "Meeting",
+            description: "Save a periodt",
             time : "09:00 AM",
             date : "08/03/2021",
             day : "1",
@@ -46,7 +49,10 @@ function Todos() {
             <Box
                 className="selected-list"
             >
-                <Typography variant="h5" sx={{mt: 2, pb: 1, pl: 1}}>{selectedList}</Typography>
+                <Stack direction="row">
+                    <TodayIcon color="primary" fontSize="small" sx={{mt: 2.6, mb: 1, ml: 1}} />
+                    <Typography variant="h6" sx={{mt: 2, pb: 2, pl: 1}}>Today</Typography>
+                </Stack>
                 <Divider />
             </Box>
             <Box className="todos" sx={{overflowX: "auto"}}>
