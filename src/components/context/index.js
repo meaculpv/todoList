@@ -20,6 +20,8 @@ function TodoContextProvider({children}) {
                 setSelectedList,
                 todos: filteredTodos,
                 lists: listsWithStats,
+                selectedTodo,
+                setSelectedTodo
             }}
         >
             {children}

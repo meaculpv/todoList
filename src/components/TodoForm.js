@@ -29,7 +29,6 @@ function TodoForm({
                     value={text}
                     onChange={(e) => setText(e.target.value)}
                     placeholder="To do ..."
-                    autoFocus
                     fullWidth
                     sx={{paddingBottom: 3,}}
                 />

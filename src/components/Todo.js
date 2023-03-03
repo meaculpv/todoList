@@ -1,5 +1,5 @@
 import { Box, Chip, Divider, IconButton, Typography } from "@mui/material";
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import UpdateIcon from '@mui/icons-material/Update';
@@ -10,10 +10,22 @@ import SubTodo from "./SubTodo";
 import { Stack } from "@mui/system";
 import firebase from "./firebase";
 import moment from "moment";
+import { TodoContext } from "./context";
 
 function Todo({todo}) {
     // STATE
     const [hover, setHover] = useState(false);
+
+    // CONTEXT
+    const { selectedTodo, setSelectedTodo } = useContext(TodoContext);
+
+    const handleDelete = todo => {
+        deleteTodo(todo);
+
+        if (selectedTodo === todo) {
+            setSelectedTodo(undefined);
+        }
+    }
 
     const deleteTodo = todo => {
         firebase
@@ -68,7 +80,16 @@ function Todo({todo}) {
                 }}
             >
 
-                <Box className="text" sx={{position: "relative", flex: 1, mb: "10px", pl: "10px"}}>
+                <Box
+                    className="text"
+                    sx={{
+                        position: "relative",
+                        flex: 1, 
+                        mb: "10px", pl: "10px",
+                        cursor: "pointer"
+                    }}
+                    onClick={() => {setSelectedTodo(todo)}}
+                >
                     <Typography variant="body1" sx={todo.checked ? {color: "#ffffff80"} : {}}>{todo.text}</Typography>
                     <Stack direction="row">
                         {
@@ -107,7 +128,7 @@ function Todo({todo}) {
                             <IconButton> <UpdateIcon fontSize="small" /> </IconButton>
                         }
                     </Box>
-                    <Box className="deleteTodo" component="span" onClick={() => deleteTodo(todo)}>
+                    <Box className="deleteTodo" component="span" onClick={() => handleDelete(todo)}>
                         {
                             (hover || todo.checked) &&
                             <IconButton> <DeleteIcon fontSize="small" /> </IconButton>

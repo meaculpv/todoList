@@ -38,9 +38,6 @@ function Todos() {
             </Box>
             <Box className="todos" sx={{overflowX: "auto"}}>
                 {
-                    console.log(selectedList)
-                }
-                {
                     selectedList === "next 7 days" ?
                     <Next7Days todos={todos} />
                     :
