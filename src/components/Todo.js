@@ -22,6 +22,16 @@ function Todo({todo}) {
             .delete()
     };
 
+    const checkTodo = todo => {
+        firebase
+            .firestore()
+            .collection("todos")
+            .doc(todo.id)
+            .update({
+                checked : !todo.checked
+            })
+    }
+
     return (
         <Box
             className="Todo"
@@ -64,7 +74,7 @@ function Todo({todo}) {
                     >
                     </Box>
                 </Box>
-                <Box className="checkTodo">
+                <Box className="checkTodo" onClick={() => checkTodo(todo)}>
                     {
                         todo.checked ?
                         <IconButton color="primary"> <CheckBoxIcon fontSize="small" /> </IconButton>
