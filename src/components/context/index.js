@@ -14,6 +14,7 @@ function TodoContextProvider({children}) {
     return (
         <TodoContext.Provider
             value={{
+                defaultList,
                 selectedList,
                 setSelectedList,
                 todos: filteredTodos,

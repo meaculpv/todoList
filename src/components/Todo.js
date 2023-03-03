@@ -5,13 +5,22 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import UpdateIcon from '@mui/icons-material/Update';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import InsertCommentSharpIcon from '@mui/icons-material/InsertCommentSharp';
 import LabelImportantSharpIcon from '@mui/icons-material/LabelImportantSharp';
 import SubTodo from "./SubTodo";
 import { Stack } from "@mui/system";
+import firebase from "./firebase";
 
 function Todo({todo}) {
-    const [hover, setHover] = useState(false)
+    // STATE
+    const [hover, setHover] = useState(false);
+
+    const deleteTodo = todo => {
+        firebase
+            .firestore()
+            .collection("todos")
+            .doc(todo.id)
+            .delete()
+    };
 
     return (
         <Box

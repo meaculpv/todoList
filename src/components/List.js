@@ -5,13 +5,39 @@ import { React, useContext, useState } from "react";
 import RenameList from "./RenameList";
 import Modal from "./Modal";
 import { TodoContext } from "./context";
+import firebase from "./firebase";
 
 function List({list, edit}) {
     // CONTEXT
-    const { setSelectedList } = useContext(TodoContext)
+    const { defaultList, selectedList, setSelectedList } = useContext(TodoContext)
 
     // STATE
     const [showModal, setShowModal] = useState(false);
+
+    const deleteList = list => {
+        firebase
+            .firestore()
+            .collection("lists")
+            .doc(list.id)
+            .delete()
+            .then(() => {
+                firebase
+                    .firestore()
+                    .collection("todos")
+                    .where("listName", "==", list.name)
+                    .get()
+                    .then((querySnapshot) => {
+                        querySnapshot.forEach(doc => {
+                            doc.ref.delete()
+                        })
+                    })
+            })
+            .then(() => {
+                if (selectedList === list.name) {
+                    setSelectedList(defaultList)
+                }
+            })
+    }
 
     return (
         <Box className="List" sx={{display: "flex", alignItems: "center", p: 0.25, m: "5px", position: "relative", width: "100%"}} 
@@ -41,7 +67,7 @@ function List({list, edit}) {
                     justifyContent: "center"
                 }}>
                     <IconButton onClick={() => setShowModal(true)}> <EditIcon fontSize="small" /> </IconButton>
-                    <IconButton> <DeleteIcon fontSize="small" /> </IconButton>
+                    <IconButton onClick={() => deleteList(list)}> <DeleteIcon fontSize="small" /> </IconButton>
                 </Box>
                 :
                 list.numOfTodos === 0 ? "" :
