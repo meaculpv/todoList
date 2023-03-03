@@ -23,6 +23,7 @@ function Todos() {
                 bottom: "40px",
                 left: "40px",
                 borderRadius: "12px",
+                overflowY: "auto",
                 pb: 0.5, pr: 0.5, pl: 0.5
             }}
         >

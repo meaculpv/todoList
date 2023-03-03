@@ -9,6 +9,7 @@ import LabelImportantSharpIcon from '@mui/icons-material/LabelImportantSharp';
 import SubTodo from "./SubTodo";
 import { Stack } from "@mui/system";
 import firebase from "./firebase";
+import moment from "moment";
 
 function Todo({todo}) {
     // STATE
@@ -30,6 +31,24 @@ function Todo({todo}) {
             .update({
                 checked : !todo.checked
             })
+    }
+
+    const repeatNextDay = todo => {
+        const nextDayDate = moment(todo.date, "MM/DD/YYYY").add(1, "days");
+
+        const repeatedTodo = {
+            ...todo,
+            checked: false,
+            date: nextDayDate.format("MM/DD/YYYY"),
+            day: nextDayDate.format("d")
+        }
+
+        delete repeatedTodo.id;
+
+        firebase
+            .firestore()
+            .collection("todos")
+            .add(repeatedTodo)
     }
 
     return (
@@ -82,7 +101,7 @@ function Todo({todo}) {
                         <IconButton> <CheckBoxOutlineBlankIcon fontSize="small" /> </IconButton>
                     }
                 </Box>
-                    <Box className="addToNextDay" component="span">
+                    <Box className="addToNextDay" component="span" onClick={() => repeatNextDay(todo)}>
                         {
                             todo.checked &&
                             <IconButton> <UpdateIcon fontSize="small" /> </IconButton>

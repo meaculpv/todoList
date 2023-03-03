@@ -25,12 +25,8 @@ export function useTodos() {
     return todos;
 }
 
-export function useLists(todos) {
+export function useLists() {
     const [lists, setLists] = useState([]);
-
-    function calculateNumOfTodos(listName, todos) {
-        return todos.filter( todo => todo.listName === listName).length;
-    }
 
     useEffect(() => {
         let unsubscribe = firebase
@@ -38,12 +34,9 @@ export function useLists(todos) {
         .collection("lists")
         .onSnapshot( snapshot => {
             const data = snapshot.docs.map( docs => {
-                const listName = docs.data().name;
-
                 return {
                     id: docs.id,
-                    name: listName,
-                    numOfTodos: calculateNumOfTodos(listName, todos),
+                    name: docs.data().name,
                 };
             });
             setLists(data);
@@ -53,6 +46,22 @@ export function useLists(todos) {
     }, []);
 
     return lists;
+}
+
+export function useListsWithStats(lists, todos) {
+    const [listsWithStats, setListsWithStats] = useState([]);
+
+    useEffect(() => {
+        const data = lists.map((list) => {
+            return {
+                numOfTodos: todos.filter(todo => todo.listName === list.name && !todo.checked).length,
+                ...list,
+            }
+        });
+        setListsWithStats(data);
+    });
+
+    return listsWithStats;
 }
 
 export function useFilterTodos(todos, selectedList) {
