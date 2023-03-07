@@ -37,7 +37,7 @@ function Lists() {
                 {
                     lists.map((list) => 
                         <ListItem key={list.id}>
-                            <ListItemButton>
+                            <ListItemButton sx={{"&:hover": {background: "#121212"}}} >
                                     <MyList 
                                         list={list}
                                         key={list.id}

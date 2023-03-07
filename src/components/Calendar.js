@@ -25,7 +25,7 @@ function Calendar() {
                 calendarItems.map((item, index) => 
                 <ListItem key={index} disablePadding sx={{p: 0.25, m: "5px"}}>
                     <ListItemButton onClick={() => setSelectedList(item)}>
-                        <ListItemText primary={item} />
+                        <ListItemText primary={item} sx={{textTransform: "capitalize"}} />
                     </ListItemButton>
                 </ListItem>)
                 }

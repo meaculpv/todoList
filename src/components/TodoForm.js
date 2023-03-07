@@ -7,6 +7,7 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { DatePicker, TimePicker, LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { React } from "react";
+import { priorityItems } from "./constants";
 
 
 
@@ -16,6 +17,7 @@ function TodoForm({
     day, setDay,
     time, setTime,
     todoList, setTodoList,
+    priority, setPriority,
     lists,
     setShowModal = false
 }) {
@@ -82,6 +84,21 @@ function TodoForm({
                             <Typography variant="body2" color="error">Create a list before proceeding</Typography>
                         }
                     </Stack>
+                    {/* <Stack direction="row" sx={{pt: 1, pl: 1}}>
+                        {
+                            priorityItems.map(priorityItem => 
+                                <Chip
+                                    color="warning"
+                                    label={priorityItem}
+                                    variant={(priorityItem == priority) ? "" : "outlined"}
+                                    size="small"
+                                    sx={{mr: 1, p: 1}}
+                                    onClick={() => setPriority(priorityItem)}
+                                />                               
+                            )
+                        }
+
+                    </Stack> */}
                 </Box>
             </FormControl>
         </LocalizationProvider>

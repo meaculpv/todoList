@@ -47,7 +47,13 @@ function List({list, edit}) {
             <Box
                 className="name"
                 sx={{
-                    cursor: "pointer", wordBreak: "break-all", ml: "-7px"
+                    cursor: "pointer",
+                    wordBreak: "break-all",
+                    ml: "-7px", 
+                    textTransform: "capitalize",
+                    "&:hover": {
+                        background: "#252525"
+                    }
                 }}
             >
                 {list.name}

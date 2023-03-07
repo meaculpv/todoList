@@ -4,6 +4,7 @@ import { React, useContext, useState, useEffect } from "react";
 import TodoForm from "./TodoForm";
 import { TodoContext } from "./context";
 import moment from "moment";
+import firebase from "./firebase";
 
 
 function EditTodo() {
@@ -11,7 +12,7 @@ function EditTodo() {
     const [text, setText] = useState('')
     const [day, setDay] = useState(new Date())
     const [time, setTime] = useState(new Date())
-    const [todoList, setTodoList] = useState()
+    const [todoList, setTodoList] = useState('')
 
     // CONTEXT
     const { selectedTodo, lists } = useContext(TodoContext);
@@ -24,6 +25,22 @@ function EditTodo() {
             setTodoList(selectedTodo.listName)
         }
     }, [selectedTodo]);
+
+    useEffect(() => {
+        if (selectedTodo) {
+            firebase
+                .firestore()
+                .collection("todos")
+                .doc(selectedTodo.id)
+                .update({
+                    text,
+                    date: moment(day).format("MM/DD/YYYY"),
+                    day: moment(day).format("d"),
+                    time: moment(time).format("hh:mm A"),
+                    listName: todoList
+                })
+        }
+    }, [text, day, time, todoList])
 
     const handleSubmit = (e) => {
 

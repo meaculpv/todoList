@@ -13,7 +13,7 @@ import firebase from "./firebase";
 
 function AddNewTodo() {
     // CONTEXT
-    const { lists, selectedList } = useContext(TodoContext);
+    const { lists, selectedList, selectedPriority } = useContext(TodoContext);
 
     // STATE
     const [showModal, setShowModal] = useState(false)
@@ -21,6 +21,7 @@ function AddNewTodo() {
     const [day, setDay] = useState(new Date())
     const [time, setTime] = useState(new Date())
     const [todoList, setTodoList] = useState(selectedList)
+    const [priority, setPriority] = useState(selectedPriority)
 
     
     function handleSubmit(e) {
@@ -39,6 +40,7 @@ function AddNewTodo() {
                         day: moment(day).format("d"),
                         time: moment(time).format("hh:mm A"),
                         checked: false,
+                        priority: priority,
                         listName: todoList,
                     }
                 );
@@ -87,6 +89,8 @@ function AddNewTodo() {
                             setTime={setTime}
                             todoList={todoList}
                             setTodoList={setTodoList}
+                            priority={priority}
+                            setPriority={setPriority}
                             lists={lists}
                             setShowModal={setShowModal}
                         />

@@ -19,6 +19,7 @@ function Todo({todo}) {
     // CONTEXT
     const { selectedTodo, setSelectedTodo } = useContext(TodoContext);
 
+
     const handleDelete = todo => {
         deleteTodo(todo);
 
@@ -93,16 +94,19 @@ function Todo({todo}) {
                     <Typography variant="body1" sx={todo.checked ? {color: "#ffffff80"} : {}}>{todo.text}</Typography>
                     <Stack direction="row">
                         {
-                            todo.checked ?
-                            <Chip icon={<AccessTimeIcon />} size="small" variant="outlined" label={todo.time} sx={{ml: "10px", mt: "6px"}} disabled />
-                            :
+                            todo.checked
+                            ?
                             <Chip icon={<AccessTimeIcon />} size="small" color="error" variant="outlined" label={todo.time} sx={{ml: "10px", mt: "6px"}} />
+                            :
+                            <Chip icon={<AccessTimeIcon />} size="small" variant="outlined" label={todo.time} sx={{ml: "10px", mt: "6px"}} disabled />
                         }
                         {
-                            todo.checked ?
+                            (todo.priority === "!!") ?
                             <Chip icon={<LabelImportantSharpIcon />} label="!!" size="small" color="warning" variant="outlined" sx={{ml: "10px", mt: "6px"}} />
-                            :
+                            : (todo.priority === "!!!") ?
                             <Chip icon={<LabelImportantSharpIcon />} label="!!!" size="small" color="warning" variant="outlined" sx={{ml: "10px", mt: "6px"}} />
+                            :
+                            ""
                         }
                     </Stack>
                     <Box 
