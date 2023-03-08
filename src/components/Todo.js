@@ -19,6 +19,11 @@ function Todo({todo}) {
     // CONTEXT
     const { selectedTodo, setSelectedTodo } = useContext(TodoContext);
 
+    // VARS
+    const pastDate = moment("01/01/2000");
+    const pastTime = moment("12:00 AM");
+    const selectedTodoDate = moment(todo.date, "MM/DD/YYYY");
+    const selectedTodoTime = moment(todo.time, "hh:mm A");
 
     const handleDelete = todo => {
         deleteTodo(todo);
@@ -96,9 +101,9 @@ function Todo({todo}) {
                         {
                             todo.checked
                             ?
-                            <Chip icon={<AccessTimeIcon />} size="small" color="error" variant="outlined" label={todo.time} sx={{ml: "10px", mt: "6px"}} />
-                            :
                             <Chip icon={<AccessTimeIcon />} size="small" variant="outlined" label={todo.time} sx={{ml: "10px", mt: "6px"}} disabled />
+                            :
+                            <Chip icon={<AccessTimeIcon />} size="small" variant="outlined" label={todo.time} sx={{ml: "10px", mt: "6px"}} />
                         }
                         {
                             (todo.priority === "!!") ?

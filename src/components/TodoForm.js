@@ -84,7 +84,7 @@ function TodoForm({
                             <Typography variant="body2" color="error">Create a list before proceeding</Typography>
                         }
                     </Stack>
-                    {/* <Stack direction="row" sx={{pt: 1, pl: 1}}>
+                    <Stack direction="row" sx={{pt: 1, pl: 1}}>
                         {
                             priorityItems.map(priorityItem => 
                                 <Chip
@@ -98,7 +98,7 @@ function TodoForm({
                             )
                         }
 
-                    </Stack> */}
+                    </Stack>
                 </Box>
             </FormControl>
         </LocalizationProvider>
