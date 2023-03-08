@@ -20,8 +20,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](main_page.png)
-[![Product Name Screen Shot][product-screenshot]](add_todo.png)
+![Product Name Screen Shot](main_page.png)
+![Product Name Screen Shot](add_todo.png)
 
 I know there are lots of todo list apps in tutorial purpose and it is one of them. I tried to give a good design as simple and user-friendly as beautiful. In addition tried to add some tricks that have many modern todo list apps.
 
