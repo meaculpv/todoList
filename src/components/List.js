@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, ListItem, ListItemButton, ListItemText } from "@mui/material";
+import { Box, Button, IconButton, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { React, useContext, useState } from "react";
@@ -56,7 +56,7 @@ function List({list, edit}) {
                     }
                 }}
             >
-                {list.name}
+                <Typography> {list.name} </Typography>
             </Box>
             <Box className="btns" sx={{display: "flex", alignItems: "center"}}>
                 {

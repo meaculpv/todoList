@@ -25,7 +25,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline>
         <div className="App">
-          <Favicon url="./components/assets/logo-doez.png" />
+          <Favicon url="./components/assets/logo-doez.ico" />
           <Sidebar>
             <User />
             <AddNewTodo />
