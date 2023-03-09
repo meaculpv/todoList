@@ -5,6 +5,7 @@ import App from './App';
 import { TodoContextProvider } from './components/context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+document.title = "Doez";
 root.render(
   <React.StrictMode>
     <TodoContextProvider>

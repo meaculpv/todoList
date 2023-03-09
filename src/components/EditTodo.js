@@ -8,6 +8,9 @@ import firebase from "./firebase";
 
 
 function EditTodo() {
+    // CONTEXT
+    const { selectedTodo, lists, selectedPriority } = useContext(TodoContext);
+
     // STATE
     const [text, setText] = useState('')
     const [day, setDay] = useState(new Date())
@@ -15,8 +18,6 @@ function EditTodo() {
     const [todoList, setTodoList] = useState('')
     const [priority, setPriority] = useState(selectedPriority)
 
-    // CONTEXT
-    const { selectedTodo, lists, selectedPriority } = useContext(TodoContext);
 
     useEffect(() => {
         if (selectedTodo) {

@@ -11,6 +11,7 @@ import Calendar from "./components/Calendar"
 import Lists from "./components/Lists"
 import Todos from "./components/Todos"
 import EditTodo from "./components/EditTodo"
+import Favicon from 'react-favicon';
 
 const darkTheme = createTheme({
   palette: {
@@ -24,6 +25,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline>
         <div className="App">
+          <Favicon url="./components/assets/logo-doez.png" />
           <Sidebar>
             <User />
             <AddNewTodo />

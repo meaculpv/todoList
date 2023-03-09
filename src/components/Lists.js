@@ -7,6 +7,7 @@ import { React, useContext, useState } from "react";
 import AddNewList from "./AddNewList";
 import MyList from "./List";
 import { TodoContext } from "./context";
+import { useSpring, animated } from "react-spring";
 
 function Lists() {
     // STATE
@@ -16,7 +17,16 @@ function Lists() {
     
     // CONTEXT
     const { lists } = useContext(TodoContext);
-    
+
+    // ANIMATION
+    const spin = useSpring({
+        transform: showMenu ? "rotate(0deg)" : "rotate(180deg)"
+    });
+
+    const menuAnimation = useSpring({
+        display: showMenu ? "block" : "none",
+    });   
+
     return (
         <Container className="Lists" sx={{p: 1,}}>
             <Box className="header" sx={{display: "flex", alignItems: "center"}}>
@@ -30,24 +40,26 @@ function Lists() {
                         <IconButton onClick={() => setEdit(edit => !edit)}> <EditIcon color={editColor} /> </IconButton>
                     }
                     <AddNewList />
-                    <IconButton> <ExpandLessIcon /> </IconButton>
+                    <animated.div style={spin}><IconButton onClick={() => setShowMenu(!showMenu)} > <ExpandLessIcon /> </IconButton></animated.div>
                 </Box>
             </Box>
-            <List className="lists">
-                {
-                    lists.map((list) => 
-                        <ListItem key={list.id}>
-                            <ListItemButton sx={{"&:hover": {background: "#121212"}}} >
-                                    <MyList 
-                                        list={list}
-                                        key={list.id}
-                                        edit={edit}
-                                    />
-                            </ListItemButton>
-                        </ListItem>
-                    )
-                }
-            </List>
+            <animated.div style={menuAnimation}>
+                <List className="lists">
+                    {
+                        lists.map((list) => 
+                            <ListItem key={list.id}>
+                                <ListItemButton sx={{"&:hover": {background: "#121212"}}} >
+                                        <MyList 
+                                            list={list}
+                                            key={list.id}
+                                            edit={edit}
+                                        />
+                                </ListItemButton>
+                            </ListItem>
+                        )
+                    }
+                </List>
+            </animated.div>
             <Divider />
         </Container>
     )
