@@ -62,12 +62,12 @@ function TodoForm({
                         renderInput={(params) => <TextField {...params} />}
                     />
                 </Box>
-                <Box className="pick-list" sx={{p: 0.5}}>
+                <Box className="pick-list" sx={{pl: 0.5, pt: 0.5}}>
                     <Box sx={{display: "flex", alignItems: "center", marginBottom: "10px"}}>
                         <FormatListBulletedIcon />
                         <Typography sx={{ml: "10px"}}>Choose a list</Typography>
                     </Box>
-                    <Stack direction="row" sx={{display: "flex", pt: 1, pl: 1, pr: 1, flexWrap: "wrap"}}>
+                    <Stack direction="row" sx={{display: "flex", pt: 0.5, pl: 1, pr: 1, flexWrap: "wrap"}}>
                         {
                             lists.length > 0 ?
                             lists.map(list =>
@@ -84,6 +84,12 @@ function TodoForm({
                             <Typography variant="body2" color="error">Create a list before proceeding</Typography>
                         }
                     </Stack>
+                </Box>
+                <Box className="pick-priority" sx={{pl: 0.5, pt: 1.5}}>
+                    <Box sx={{display: "flex", alignItems: "center", marginBottom: "10px"}}>
+                        <FormatListBulletedIcon />
+                        <Typography sx={{ml: "10px"}}>Choose a priority</Typography>
+                    </Box>
                     <Stack direction="row" sx={{pt: 1, pl: 1}}>
                         {
                             priorityItems.map(priorityItem => 
@@ -97,7 +103,6 @@ function TodoForm({
                                 />                               
                             )
                         }
-
                     </Stack>
                 </Box>
             </FormControl>

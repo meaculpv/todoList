@@ -13,9 +13,10 @@ function EditTodo() {
     const [day, setDay] = useState(new Date())
     const [time, setTime] = useState(new Date())
     const [todoList, setTodoList] = useState('')
+    const [priority, setPriority] = useState(selectedPriority)
 
     // CONTEXT
-    const { selectedTodo, lists } = useContext(TodoContext);
+    const { selectedTodo, lists, selectedPriority } = useContext(TodoContext);
 
     useEffect(() => {
         if (selectedTodo) {
@@ -83,6 +84,8 @@ function EditTodo() {
                             todoList={todoList}
                             setTodoList={setTodoList}
                             setTime={setTime}
+                            priority={priority}
+                            setPriority={setPriority}
                             lists={lists}
                         />
                     </Box>
